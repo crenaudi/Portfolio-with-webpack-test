@@ -1,0 +1,34 @@
+
+INSTALL :
+
+> npm install -D
+webpack
+webpack-cli
+webpack-dev-server
+webpack-bundle-analyzer
+html-webpack-plugin
+html-webpack-plugin@next
+clean-webpack-plugin
+mini-css-extract-plugin css-loader
+sass sass-loader
+postcss postcss-loader postcss-preset-env
+@babel/core babel-loader @babel/preset-env @babel/preset-react
+
+
+TOUCH :
+
+webpack.config.js
+babel.config.js/json
+postcss.config.js
+.browserslistrc
+
+
+POUR UPDATE :
+
+> npx babel-upgrade --write
+
+
+HELPERS :
+
+can i use (to check navigate support)
+

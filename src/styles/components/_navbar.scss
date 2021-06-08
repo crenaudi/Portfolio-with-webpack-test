@@ -1,0 +1,186 @@
+.sidebar {
+    background: $color-2;
+    font-family: $font-0;
+    height: 100%;
+    width: 365px;
+    min-height: $minHeight;
+    border-radius: $borderRadius;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 325px .9fr 150px;
+    grid-template-areas: "1" "2" "3";
+}
+
+.id {
+    grid-area: 1;
+    text-align: center;
+    user-select: none;
+    position: relative;
+
+    .idContent {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+
+        img {
+            display: flex;
+            margin: 0 auto;
+        }
+
+        img.icon {
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px $color-0, 0 0 0 6px $color-1;
+        }
+        
+        img.logo {
+            font-family: $font-2;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: .1rem;
+            margin-top: 2rem;
+            color: $color-0;
+        }
+    }
+}
+.navBar {
+    grid-area: 2;
+    padding: 2rem 1rem;
+
+    ul {
+        margin-top: 2rem;
+        display: grid;
+
+        li {
+            padding: .6rem 2rem .6rem;
+            font-size: 1.2rem;
+            letter-spacing: .1rem;
+            position: relative;
+
+            &:hover i {
+                transform: translate(4px, 4px);
+                color : $color-1;
+            }
+
+            .navActive {
+                i {
+                    color: $color-1;
+                }
+            }
+
+            i {
+                position: absolute;
+                font-size: 0.95rem;
+                transform: translateY(3px);
+                transition: .2s ease;
+                color : $color-0;
+            }
+
+            span {
+                margin-left: 2.7rem;
+                transition: .3s ease;
+                color : $color-0;
+            }
+
+            &:hover span {
+                color : $color-1;
+            }
+        }
+    }
+}
+.socialNetwork {
+    grid-area: 3;
+
+    ul {
+        display: flex;
+        width: 195px;
+        text-align: center;
+        margin: 0 auto;
+
+        li {
+            font-size: 2rem;
+            background: $color-0;
+            border-radius: 50%;
+            padding: .5rem .8rem;
+            transition: 0.3s;
+            cursor: pointer;
+
+            &:hover {
+                background: $color-1;
+            }
+            a {
+                color: $color-2;
+            }
+            a:visited {
+                color: $color-2;
+            }
+            &:nth-child(1){
+                padding: .5rem .85rem;
+            }
+            &:nth-child(2){
+                margin: 0 1rem;
+            }
+            &:nth-child(3){
+                padding: .5rem .75rem;
+            }
+        }
+    }
+}
+.signature {
+    font-size: .7rem;
+    font-family: $font-1;
+    font-weight: 300;
+    margin-top: 4rem;
+    text-align: center;
+    letter-spacing: .1rem;
+
+    p {
+        border-top: 1px solid $font-2;
+    }
+}
+@media screen and (max-width: 850px) {
+    .sidebar {
+        display: flex;
+        min-height: 50px;
+        margin-bottom: .2rem;
+        padding: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
+
+        .id, .socialNetwork {
+            display: none;
+        }
+
+        .navBar{
+            width: 100%;
+            
+            ul {
+                display: flex;
+                margin: 0 auto;
+                justify-content: space-between;
+
+                li {
+                    font-size: .8rem;
+                    padding: 0;
+                }
+
+                i {
+                    display: none;
+                    margin: 0;
+                }
+
+                span {
+                    margin-top: 1.5rem !important;
+                    margin-left: 0.25rem;
+                    margin-right: 0.25rem;
+                }
+
+                span:visited {
+                    color: $color-2;
+                }
+            }
+        }
+    }
+}

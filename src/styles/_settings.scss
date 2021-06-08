@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Rubik:wght@300;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&family=Ubuntu:wght@300;500;700&display=swap');
+
+$font-0: 'Ubuntu', sans-serif;
+$font-1: 'Ubuntu Condensed', sans-serif;
+$font-2: 'Rubik', sans-serif;
+$font-3: 'Roboto Condensed', sans-serif;
+
+$color-0: #6B7FFD;
+$color-1: #ffe79f;
+$color-2: #1d1622;
+$color-3: #EFF1F3;
+$color-4: #FF5E5B;
+$color-5: #0C1821;
+
+$borderRadius: 6px;
+$shadow: 0px 1px 3px $color-2;
+$minHeight: 90vh;
+
+@mixin verticalCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 1rem auto;
+    max-width: 1200px;
+    font-family: $font-0;
+    color: $color-3;
+    background: url('../media/4.jfif') no-repeat center/cover;
+}
+button {
+    cursor: pointer;
+}
+li {
+    list-style-type: none;
+}
+a, a:visited {
+    text-decoration: none;
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+.home, .knowledges, .portfolio, .contact {
+    display: flex;
+
+    @media screen and (max-width: 850px) {
+        display: block !important;
+    }
+}
+.homeContent, .knowledgesContent, .portfolioContent, .contactContent {
+    margin-left: .4rem;
+
+    @media screen and (max-width: 850px) {
+        margin-left: 0 i !important;
+    }
+}

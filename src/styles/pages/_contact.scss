@@ -1,0 +1,224 @@
+@keyframes wave {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .music-card {
+    margin: 10rem auto;
+    background: #fff;
+    box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+    overflow: hidden;
+    position: relative;
+    width: 400px;
+    height: 700px;
+    border-radius: 6px;
+  }
+  
+  .image {
+    background: url(../media/hr-giger.jpg) no-repeat center top/cover;
+    filter: grayscale(100%);
+    background-size: cover;  
+    position: absolute;
+    z-index: 1;
+    opacity: 0.3;
+    height: 300px;
+    width: 100%;
+  }
+  
+  .image:after {
+    height: 100px;
+    content: '';
+    top: 200px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    background: linear-gradient(rgba(9, 2, 4, 0), #444);
+  }
+  
+  .wave {
+    position: absolute;
+    height: 1150px;
+    width: 1150px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -95%;
+    margin-top: -200%;
+    background: radial-gradient(#353535, #383737);
+  }
+  
+  .wave:nth-child(2),
+  .wave:nth-child(3) {
+    top: 10px;
+  }
+  
+  .playing .wave {
+    border-radius: 40%;
+    animation: wave 3000ms infinite linear;
+  }
+  /* when stop */
+  .wave {
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+  }
+  
+  .playing .wave:nth-child(2) {
+    animation-duration: 4000ms;
+  }
+  /* when stop */
+  .wave:nth-child(2) {
+    animation-duration: 50s;
+  }
+  
+  .playing .wave:nth-child(3) {
+    animation-duration: 5000ms;
+  }
+  /* when stop */
+  .wave:nth-child(3) {
+    animation-duration: 45s;
+  }
+
+.contactContent {
+    border: .1rem solid $color-0;
+    border-radius: $borderRadius;
+    background-color:rgba(0,0,0,0.45);
+    width: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20% 45% 35%;
+    grid-template-areas: 
+      "1"
+      "2"
+      "3";
+
+    .contactBox {
+      grid-area: 2;
+      margin: 24rem auto 0 auto;
+      padding: 1rem 3rem;
+      z-index: 2;
+      width: 100%;
+      min-height: 300px;
+  
+      h1 {
+        text-align: center;
+        margin-top: 2.6rem;
+        position: relative;
+        color: $color-2;
+  
+        &:after {
+          content: '';
+          height: 1px;
+          width: 50%;
+          background: $color-0;
+          position: absolute;
+          bottom: -25px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+      ul {
+        height: 30%;
+        width: inherit;
+        display: grid;
+        margin-top: 2rem;
+  
+        li {
+          position: relative;
+          margin-top: 2rem;;
+        }
+  
+        i {
+          font-size: 1.4rem;
+          position: absolute;
+          transform: translateY(2px);
+          color: $color-2;
+        }
+        span {
+            color: $color-2;
+            font-size: 1.1rem;
+            position: absolute;
+            transform: translateX(52px);
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 350px;
+            transition: .2s ease;
+        }
+        .clickInput:hover {
+          transform: translateX(56px);
+          cursor: pointer;
+        }
+      }
+    }
+    .socialNetwork {
+      grid-area: 3;
+      @include verticalCenter;
+  
+      ul {
+        display: flex;
+        text-align: center;
+        width: 100%;
+        justify-content: space-around;
+  
+        a {
+          width: 20%;
+          font-size: 1.2rem;
+          background: $color-5;
+          border-radius: $borderRadius;
+          display: inline-block;
+          padding: 0.7rem 0;
+          box-shadow: $shadow;
+          transform: scaleY(0);
+          transform-origin: center;
+          transition: .2s ease;
+          transition: scale .1s;
+  
+          &:hover {
+            background: $color-4;
+          }
+  
+          i {
+            color: $color-2;
+            margin-top: .3rem;
+          }
+        }
+        //ANIMATION
+        @mixin networkAnim($timeout) {
+          animation: pop 1s forwards;
+          animation-delay: $timeout;
+  
+        }
+        @keyframes pop {
+          to {
+            transform: scaleY(1);
+          }
+        }
+        a:nth-child(1) {
+          @include networkAnim(.4s);
+        }
+        a:nth-child(2) {
+          @include networkAnim(.8s);
+        }
+        a:nth-child(3) {
+          @include networkAnim(1.2s);
+        }
+        a:nth-child(4) {
+          @include networkAnim(1.6s);
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 500px){
+    .contactContent {
+      .contactBox {
+        min-width: 100% !important;
+      }
+      span {
+        font-size: .9rem !important;
+      }
+      h4 {
+        font-size: .9rem;
+      }
+    }
+  }
